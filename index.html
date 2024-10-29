@@ -4,40 +4,33 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora</title>
-    <script
-      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
-      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
-      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <div class="container">
       <form id="Calculadora">
         <h1>SELECCIÓN</h1>
-
         <label for="tipoAfiliado">Selecciona tu tipo de afiliación</label>
         <select id="tipoAfiliado">
           <option value="asociado">Asociado</option>
           <option value="noAsociado">No Asociado</option>
           <option value="extranjero">Extranjero</option>
         </select>
-
-        <label for="tarifaInscripcion">Qué tipo de incripción deseas</label>
+        <label for="tarifaInscripcion">Qué tipo de inscripción deseas</label>
         <select id="tarifaInscripcion">
           <option value="comprador">Comprador - ($ 500.000)</option>
           <option value="vendedor">Vendedor - ($ 400.000)</option>
           <option value="expositor">Expositor - ($ 120.000)</option>
         </select>
-
         <button type="submit">Comprar</button>
       </form>
     </div>
-
-    <script src="app.js"></script>
+    <script src="model/model.js"></script>
+    <script src="controller/controller.js"></script>
+    <script src="view/view.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        new View();
+      });
+    </script>
   </body>
 </html>
