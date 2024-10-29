@@ -5,6 +5,8 @@ class Controller {
 
   calcular(tarifaInscripcion, tipoAfiliado) {
     console.log("Calculando para:", tarifaInscripcion, tipoAfiliado);
-    return this.model.calcularTotal(tarifaInscripcion, tipoAfiliado);
+    const { valorSinIVA, iva, total, desRec, porcentajeDesRec } = this.model.calcularTotal(tarifaInscripcion, tipoAfiliado);
+
+    return { valorSinIVA, iva, total, desRec, porcentajeDesRec };
   }
 }

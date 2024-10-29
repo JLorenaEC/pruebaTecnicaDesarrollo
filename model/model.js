@@ -30,17 +30,29 @@ class Model {
     const iva = this.calcularIVA(valorBase);
 
     let total;
+    let desRec = 0;
+    let porcentajeDesRec = 0;
 
     if (tipoAfiliado === "extranjero") {
       total = tarifaTotal / this.trm;
     } else {
       total = tarifaTotal * this.tipoAfiliados[tipoAfiliado];
-    }
 
+      if (tipoAfiliado === "asociado") {
+        desRec = tarifaTotal - total;
+        porcentajeDesRec = (desRec / tarifaTotal) * 100;
+      } else if (tipoAfiliado === "noAsociado") {
+        desRec = total - tarifaTotal;
+        porcentajeDesRec = (desRec / tarifaTotal) * 100;
+      }
+    }
+    console.log(`tarifaTotal: ${tarifaTotal}, total: ${total}, desRec: ${desRec}, porcentajeDesRec: ${porcentajeDesRec}`);
     return {
       valorSinIVA: valorBase,
       iva: iva,
       total: total,
+      desRec: desRec,
+      porcentajeDesRec: porcentajeDesRec,
     };
   }
 }
